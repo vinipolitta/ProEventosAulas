@@ -10,8 +10,9 @@
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
-      <th>
+      <th class="text-center">
         <button class="btn btn-outline-light btn-sm" (click)="showImage = !showImage">
+          <i class="{{ showImage ? 'fa fa-eye' : 'fa fa-eye-slash' }}"></i>&nbsp;
           {{ showImage ? "Exibir" : "Ocultar" }}
         </button>
       </th>
@@ -30,15 +31,18 @@
         <img [collapse]="showImage" [isAnimated]="true" src="/assets/img/{{ evento.imagemURL }}" [style.width.px]="widthImg"
           [style.margin.px]="marginImg" />
       </td>
-      <td>{{ evento.eventoId }}</td>
+      <td>{{ evento.id }}</td>
       <td>{{ evento.tema }}</td>
       <td>{{ evento.local }}</td>
-      <td>{{ evento.dataEvento }}</td>
-      <td>{{ evento.qtdPessoas }}</td>
-      <td>{{ evento.lote }}</td>
+      <td>{{ evento.dataEvento | dateTimeFormat}}</td>
+      <td>{{ evento.qtdPessoa }}</td>
+      <td>{{ evento.lotes[0].nome | uppercase}}</td>
       <td>
-        <button class="btn btn-danger">
-          <i class="fa-solid fa-trash-can"></i></button>&nbsp;&nbsp;<button class="btn btn-info">
+        <button class="btn btn-danger" tooltip="Excluir" (click)="openModal(template)">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+        &nbsp;&nbsp;
+        <button class="btn btn-info" tooltip="Editar">
           <i class="fa-solid fa-pen-to-square"></i>
         </button>
       </td>
@@ -52,3 +56,12 @@
     </tr>
   </tfoot>
 </table>
+
+<!-- MODAL -->
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Tem certeza que quer deletar esse evento?</p>
+    <button type="button" class="btn btn-default" (click)="confirm()" >Sim</button>
+    <button type="button" class="btn btn-primary" (click)="decline()" >Nao</button>
+  </div>
+</ng-template>
