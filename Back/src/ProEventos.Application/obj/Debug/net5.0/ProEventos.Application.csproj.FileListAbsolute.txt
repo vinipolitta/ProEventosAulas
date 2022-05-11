@@ -1,0 +1,17 @@
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Application.deps.json
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Application.dll
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Application.pdb
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.AssemblyInfoInputs.cache
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.AssemblyInfo.cs
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.csproj.CoreCompileInputs.cache
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.dll
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.Application\obj\Debug\net5.0\ref\ProEventos.Application.dll
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.pdb
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Domain.dll
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Persistence.dll
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Domain.pdb
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.Application\bin\Debug\net5.0\ProEventos.Persistence.pdb
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.csproj.CopyComplete
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.Application\bin\Debug\net5.0\ref\ProEventos.Application.dll
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.Application\obj\Debug\net5.0\ProEventos.Application.csprojAssemblyReference.cache
