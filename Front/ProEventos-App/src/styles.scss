@@ -6,10 +6,11 @@
 // @import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
 // @import '../node_modules/font-awesome/css/font-awesome.min.css';
 /* Importing Datepicker SCSS file. */
-// @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
 
 /* Importing Datepicker SCSS file. */
 @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+@import "../node_modules/bootswatch/dist/cerulean/bootstrap.min.css"

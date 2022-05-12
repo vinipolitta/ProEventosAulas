@@ -1,6 +1,8 @@
-<nav class=" navbar-expand-lg navbar navbar-dark bg-primary">
+<nav class=" navbar-expand-lg navbar navbar-dark bg-primary shadow-sm" *ngIf="showMenu()">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="dashboard">Navbar</a>
+    <a class="navbar-brand" routerLink="dashboard">
+      <i class="fa-solid fa-chart-line"></i>
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
       <span class="navbar-toggler-icon"></span>
@@ -8,7 +10,7 @@
     <div class="collapse navbar-collapse"  [collapse]="isCollapsed" [isAnimated]="true" id="navbarNav">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link " aria-current="page" routerLink="eventos">Eventos</a>
+          <a class="nav-link " aria-current="page" routerLink="eventos/lista">Eventos</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="palestrantes">Palestrantes</a>
@@ -25,11 +27,11 @@
             Vinícius
           </a>
           <div *dropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="/perfil">
+            <a class="dropdown-item" routerLink="user/perfil">
               Perfil
             </a>
             <div role="separator" class="divider"></div>
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item" routerLink="user/login">
               Sair
             </a>
           </div>
