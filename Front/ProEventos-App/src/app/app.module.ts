@@ -20,15 +20,15 @@ import { TitleComponent } from './shared/title/title.component';
 import { ContatosComponent } from './components/contatos/contatos.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PerfilComponent } from './components/user/perfil/perfil.component';
-
-import { DateTimeFormatPipe } from './helpers/date-time-format.pipe';
-
 import { EventoService } from './Services/evento.service';
 import { EventoDetalheComponent } from './components/eventos/evento-detalhe/evento-detalhe.component';
 import { EventoListaComponent } from './components/eventos/evento-lista/evento-lista.component';
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { RegistrationComponent } from './components/user/registration/registration.component';
+
+import { DateTimeFormatPipe } from './helpers/date-time-format.pipe';
+
 
 
 @NgModule({
@@ -46,7 +46,8 @@ import { RegistrationComponent } from './components/user/registration/registrati
     EventoListaComponent,
     UserComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+
   ],
   imports: [
     BrowserModule,
