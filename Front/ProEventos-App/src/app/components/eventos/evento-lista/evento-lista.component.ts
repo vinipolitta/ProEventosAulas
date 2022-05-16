@@ -20,6 +20,7 @@ export class EventoListaComponent implements OnInit {
   private _filterList = '';
 
   modalRef?: BsModalRef;
+  eventoId: number;
 
   constructor(
     private eventoService: EventoService,
@@ -31,7 +32,7 @@ export class EventoListaComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    this.getEventos();
+    this.carregarEventos();
 
   }
   public get filterList(): string {
@@ -57,11 +58,13 @@ export class EventoListaComponent implements OnInit {
     );
   }
 
-  public getEventos(): void {
+  public carregarEventos(): void {
     this.eventoService.getEventos().subscribe(
       (_eventos: Evento[]) => {
         this.eventos = _eventos;
         this.eventosFiltrados = this.eventos;
+        console.log(this.eventos);
+
         this.spinner.hide();
       },
       (error) => {
@@ -71,13 +74,28 @@ export class EventoListaComponent implements OnInit {
     );
   }
 
-  openModal(template: TemplateRef<any>) {
+  openModal(event: any, template: TemplateRef<any>, eventoId: number) {
+    event.stopPropagation();
+    this.eventoId = eventoId
     this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
   }
 
   confirm(): void {
     this.modalRef?.hide();
-    this.toastr.success('O evento deletado com sucesso', 'Deletado');
+    this.spinner.show();
+
+    this.eventoService.deleteEventos(this.eventoId).subscribe(
+      (result: any) => {
+        if (result.message === 'Deletado') {
+          this.toastr.success(`O evento ${this.eventoId} deletado com sucesso`, 'Deletado');
+          this.carregarEventos();
+        }
+      },
+      (error: any) => {
+        console.error(error);
+        this.toastr.error(`Erro ao tentar deletar o evento ${this.eventoId}`, 'Erro!!!');
+      }
+    ).add(() => this.spinner.hide())
   }
 
   decline(): void {
