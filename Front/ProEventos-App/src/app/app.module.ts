@@ -31,6 +31,8 @@ import { LoginComponent } from './components/user/login/login.component';
 import { RegistrationComponent } from './components/user/registration/registration.component';
 
 import { DateTimeFormatPipe } from './helpers/date-time-format.pipe';
+import { LoteService } from './Services/lote.service';
+import { NgxCurrencyModule } from 'ngx-currency';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -60,6 +62,7 @@ defineLocale('pt-br', ptBrLocale);
     FormsModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
+    NgxCurrencyModule,
     BsDatepickerModule.forRoot(),
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
@@ -73,7 +76,7 @@ defineLocale('pt-br', ptBrLocale);
     })
   ],
   schemas : [ CUSTOM_ELEMENTS_SCHEMA] ,
-  providers: [EventoService],
+  providers: [EventoService, LoteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

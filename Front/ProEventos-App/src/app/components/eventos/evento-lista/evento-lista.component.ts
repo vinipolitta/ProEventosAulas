@@ -63,15 +63,11 @@ export class EventoListaComponent implements OnInit {
       (_eventos: Evento[]) => {
         this.eventos = _eventos;
         this.eventosFiltrados = this.eventos;
-        console.log(this.eventos);
-
-        this.spinner.hide();
       },
       (error) => {
-        this.spinner.hide();
         this.toastr.error("Erro ao carregar eventos", 'ERROR!')
       }
-    );
+    ).add(() => this.spinner.hide());
   }
 
   openModal(event: any, template: TemplateRef<any>, eventoId: number) {
