@@ -118,7 +118,7 @@ namespace ProEventos.Application
         {
             try
             {
-                var evento = await _eventoPersist.GetAllEventoByIdAsync(eventoId);
+                var evento = await _eventoPersist.GetAllEventoByIdAsync(eventoId, includePalestrantes);
                 if (evento == null) return null;
 
                 var resultado = _mapper.Map<EventoDto>(evento);

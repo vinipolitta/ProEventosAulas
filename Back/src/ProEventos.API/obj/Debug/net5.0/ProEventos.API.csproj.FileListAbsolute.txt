@@ -1,4 +1,3 @@
-D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\obj\Debug\net5.0\ProEventos.API.csprojAssemblyReference.cache
 D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\obj\Debug\net5.0\ProEventos.API.GeneratedMSBuildEditorConfig.editorconfig
 D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\obj\Debug\net5.0\ProEventos.API.AssemblyInfoInputs.cache
 D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\obj\Debug\net5.0\ProEventos.API.AssemblyInfo.cs
@@ -15,7 +14,6 @@ D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\bin\Debug\net5.0\Pro
 D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\bin\Debug\net5.0\ProEventos.API.runtimeconfig.json
 D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\bin\Debug\net5.0\ProEventos.API.runtimeconfig.dev.json
 D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\bin\Debug\net5.0\ProEventos.API.dll
-D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\bin\Debug\net5.0\ref\ProEventos.API.dll
 D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\bin\Debug\net5.0\ProEventos.API.pdb
 D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\bin\Debug\net5.0\Humanizer.dll
 D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\bin\Debug\net5.0\Microsoft.Data.Sqlite.dll
@@ -56,7 +54,6 @@ D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\bin\Debug\net5.0\Pro
 D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\bin\Debug\net5.0\ProEventos.Domain.pdb
 D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\bin\Debug\net5.0\ProEventos.Persistence.pdb
 D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\obj\Debug\net5.0\staticwebassets\ProEventos.API.StaticWebAssets.Manifest.cache
-D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\obj\Debug\net5.0\staticwebassets\ProEventos.API.StaticWebAssets.xml
 D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\obj\Debug\net5.0\scopedcss\bundle\ProEventos.API.styles.css
 D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\obj\Debug\net5.0\ProEventos.API.RazorTargetAssemblyInfo.cache
 D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\obj\Debug\net5.0\ProEventos.API.csproj.CopyComplete
@@ -71,3 +68,6 @@ D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\bin\Debug\net5.0\Mic
 D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
 D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\bin\Debug\net5.0\ref\ProEventos.API.dll
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\obj\Debug\net5.0\ProEventos.API.csprojAssemblyReference.cache
+D:\repos\ProEventos\ProEventosAulas\Back\src\ProEventos.API\obj\Debug\net5.0\staticwebassets\ProEventos.API.StaticWebAssets.xml
