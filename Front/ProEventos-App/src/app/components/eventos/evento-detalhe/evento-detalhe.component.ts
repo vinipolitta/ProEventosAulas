@@ -1,3 +1,4 @@
+import { environment } from './../../../../environments/environment';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { LoteService } from './../../../Services/lote.service';
 import { AbstractControl } from '@angular/forms';
@@ -29,6 +30,8 @@ export class EventoDetalheComponent implements OnInit {
   eventoId: number;
   modalRef: BsModalRef;
   loteAtual = { id: 0, nome: '', indice: 0 };
+  imagemURL = 'assets/img/upload-image.png'
+  file: File;
 
   get modoEditar(): boolean {
     return this.estadoSalvar === 'put';
@@ -101,11 +104,11 @@ export class EventoDetalheComponent implements OnInit {
     });
   }
 
-  adicionarLote(): void {
+  public adicionarLote(): void {
     this.lotes.push(this.criarLote({ id: 0 } as Lote));
   }
 
-  criarLote(lote: Lote): FormGroup {
+  public criarLote(lote: Lote): FormGroup {
     return this.fb.group({
       id: [lote.id],
       nome: [lote.nome, Validators.required],
@@ -114,6 +117,7 @@ export class EventoDetalheComponent implements OnInit {
       dataInicio: [lote.dataInicio],
       dataFim: [lote.dataFim],
     });
+
   }
 
   public resetForm() {
@@ -137,10 +141,13 @@ export class EventoDetalheComponent implements OnInit {
           (evento: Evento) => {
             this.evento = { ...evento };
             this.form.patchValue(this.evento);
-            this.evento.lotes.forEach((lote) => {
-              this.lotes.push(this.criarLote(lote));
-            });
-            // this.carregarLotes();
+            // this.evento.lotes.forEach((lote) => {
+            //   this.lotes.push(this.criarLote(lote));
+            // });
+            if (this.evento.imagemURL !== '') {
+              this.imagemURL = environment.apiURL + 'resources/images/' + this.evento.imagemURL;
+            }
+            this.carregarLotes();
           },
           (error: any) => {
             this.toaster.error('Erro ao tentar carregar eventos', 'Erro!!!');
@@ -151,18 +158,20 @@ export class EventoDetalheComponent implements OnInit {
     }
   }
 
-  // carregarLotes(): void {
-  //   this.loteService.getLotesByEventoId(this.eventoId).subscribe(
-  //     (lotesRetorno: Lote[]) => {
-  //       lotesRetorno.forEach(lote => {this.lotes.push(this.criarLote(lote))})
-  //     },
-  //     (error: any) => {
-  //       this.toaster.error('Erro ao tentar carregar lotes', 'Erro!!!');
-  //       console.error(error);
+  public carregarLotes(): void {
+    this.loteService.getLotesByEventoId(this.eventoId).subscribe(
+      (lotesRetorno: Lote[]) => {
+        lotesRetorno.forEach(lote => {
+          this.lotes.push(this.criarLote(lote));
+        })
+      },
+      (error: any) => {
+        this.toaster.error('Erro ao tentar carregar lotes', 'Erro!!!');
+        console.error(error);
 
-  //     },
-  //   ).add(() => this.spinner.hide());
-  // }
+      },
+    ).add(() => this.spinner.hide());
+  }
 
   public salvarAlteracao(): void {
     if (this.form.valid) {
@@ -189,7 +198,6 @@ export class EventoDetalheComponent implements OnInit {
 
   public salvarLotes() {
     this.spinner.show();
-
     if (this.form.controls['lotes'].valid) {
       this.loteService
         .saveLote(this.eventoId, this.form.value.lotes)
@@ -245,5 +253,29 @@ export class EventoDetalheComponent implements OnInit {
 
   retornaTituloLote(nome: string): string {
     return nome === null || nome === '' ? 'Nome do Lote' : nome;
+  }
+
+  onFileChange(event: any) {
+    const reader = new FileReader();
+    reader.onload = (ev: any) => this.imagemURL = ev.target.result;
+    this.file = event.target.files;
+    reader.readAsDataURL(this.file[0]);
+
+    this.uploadImagem();
+  }
+
+  uploadImagem(): void {
+    this.spinner.show();
+    this.eventoService.postUpload(this.eventoId, this.file).subscribe(
+      () => {
+        this.carregarEvento();
+        this.toaster.success('Imagem atualizada com sucesso', 'Sucesso!!!')
+      },
+      (error: any) => {
+        this.toaster.error('Erro ao tentar carregar a imagem', 'Erro!!!');
+        console.error(error);
+      }
+    ).add(() => this.spinner.hide());
+
   }
 }

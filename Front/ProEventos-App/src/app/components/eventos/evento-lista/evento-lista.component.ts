@@ -5,6 +5,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { Evento } from '@app/models/evento';
 import { EventoService } from '@app/Services/evento.service';
+import { environment } from '@environments/environment';
 
 @Component({
   selector: 'app-evento-lista',
@@ -101,4 +102,12 @@ export class EventoListaComponent implements OnInit {
   detalheEvento(id: number) {
     this.router.navigate([`eventos/detalhe/${id}`]);
   }
+
+  mostrarImagem(imgUrl: any): string {
+
+    return (imgUrl !== '')
+      ? `${environment.apiURL}resources/images/${imgUrl}`
+      : 'assets/img/img-not-found.png'
+  }
+
 }
