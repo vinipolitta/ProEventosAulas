@@ -28,6 +28,8 @@ namespace ProEventos.Application.Dtos
         Display(Name = "e-mail"),
         EmailAddress(ErrorMessage = "É nescessario ser um {0} válido")]
         public string Email { get; set; }
+        public int UserId { get; set; }
+        public UserDto UserDtoS { get; set; }
         public IEnumerable<LoteDto> Lotes { get; set; }
         public IEnumerable<RedeSocialDto> RedeSociais { get; set; }
         public IEnumerable<PalestranteDto> PalestrantesEventos { get; set; }
