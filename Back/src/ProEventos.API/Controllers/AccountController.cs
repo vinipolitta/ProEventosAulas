@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -9,10 +10,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ProEventos.Application.Contratos;
 using ProEventos.Application.Dtos;
+using ProEventos.API.Extensions;
 
 namespace ProEventos.API.Controllers
 {
     [Authorize]
+    [ApiController]
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
@@ -26,18 +29,19 @@ namespace ProEventos.API.Controllers
             _tokenService = tokenService;
         }
 
-        [HttpGet("GetUser/{userName}")]
-        [AllowAnonymous]
-        public async Task<IActionResult> GetUser(string userName)
+        [HttpGet("GetUser")]
+        public async Task<IActionResult> GetUser()
         {
-            try
+             try
             {
+                var userName = User.GetUserName();
                 var user = await _accountService.GetUserByUsernameAsync(userName);
                 return Ok(user);
             }
             catch (Exception ex)
             {
-                return  this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao tentar recuperar usuario. Erro: {ex.Message}");
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar recuperar Usuário. Erro: {ex.Message}");
             }
         }
 
@@ -59,7 +63,63 @@ namespace ProEventos.API.Controllers
             }
             catch (Exception ex)
             {
-                return  this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao tentar recuperar usuario. Erro: {ex.Message}");
+                return  this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao tentar registrar usuario. Erro: {ex.Message}");
+            }
+        }
+
+        [HttpPost("Login")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(UserLoginDto userLogin)
+        {
+            try
+            {
+                var user = await _accountService.GetUserByUsernameAsync(userLogin.Username);
+                if (user == null) return Unauthorized("Usuário ou Senha está errado");
+
+                var result = await _accountService.CheckUserPasswordAsync(user, userLogin.Password);
+                if (!result.Succeeded) return Unauthorized();
+
+                return Ok(new
+                {
+                    userName = user.UserName,
+                    primeroNome = user.PrimeiroNome,
+                    token = _tokenService.CreateToken(user).Result
+                });
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar realizar Login. Erro: {ex.Message}");
+            }
+        }
+
+        
+        [HttpPut("UpdateUser")]
+        [AllowAnonymous]
+        public async Task<IActionResult> UpdateUser(UserUpdateDto userUpdateDto)
+        {
+            try
+            {
+                if (userUpdateDto.UserName != User.GetUserName())
+                    return Unauthorized("Usuário Inválido");
+
+                var user = await _accountService.GetUserByUsernameAsync(User.GetUserName());
+                if (user == null) return Unauthorized("Usuário Inválido");
+
+                var userReturn = await _accountService.UpdateAccount(userUpdateDto);
+                if (userReturn == null) return NoContent();
+
+                return Ok(new
+                {
+                    userName = userReturn.UserName,
+                    PrimeroNome = userReturn.PrimeiroNome,
+                    token = _tokenService.CreateToken(userReturn).Result
+                });
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar Atualizar Usuário. Erro: {ex.Message}");
             }
         }
     }

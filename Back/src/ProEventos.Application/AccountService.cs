@@ -64,21 +64,22 @@ namespace ProEventos.Application
             }
         }
 
-        public async Task<UserUpdateDto> GetUserByUsernameAsync(string username)
+        public async Task<UserUpdateDto> GetUserByUsernameAsync(string userName)
         {
             try
             {
-                var user = await _userPersist.GetUsersByUsernameAsync(username);
+                var user = await _userPersist.GetUsersByUsernameAsync(userName);
                 if (user == null) return null;
 
-                var userUpdateDto =  _mapper.Map<UserUpdateDto>(user);
+                var userUpdateDto = _mapper.Map<UserUpdateDto>(user);
                 return userUpdateDto;
             }
             catch (System.Exception ex)
             {
-                 throw new Exception($"Erro ao tentar encontrar usuario por Username. Erro: {ex.Message}");
+                throw new Exception($"Erro ao tentar pegar Usuário por Username. Erro: {ex.Message}");
             }
         }
+
 
         public async Task<UserUpdateDto> UpdateAccount(UserUpdateDto userUpdateDto)
         {
