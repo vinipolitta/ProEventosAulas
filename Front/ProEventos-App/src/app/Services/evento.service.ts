@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@environments/environment';
 import { Observable } from 'rxjs';
@@ -10,9 +10,10 @@ import { Evento } from '../models/evento';
 export class EventoService {
   constructor(private http: HttpClient) {}
   public URL = environment.apiURL + 'api/Eventos';
+  tokenHeader = new HttpHeaders({'Authorization': `Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJ2aW5pIiwibmJmIjoxNjUzMjEyMzE2LCJleHAiOjE2NTMyOTg3MTYsImlhdCI6MTY1MzIxMjMxNn0.FXSFLp78jDDwB1_d1czCFP2oJrI5KXMzds-LKMLNuD1LTtyphbV_wabV92TatQQYP5fpm5Zt5919oDhMrWaqKw`})
 
   public getEventos(): Observable<Evento[]> {
-    return this.http.get<Evento[]>(this.URL).pipe(take(1));
+    return this.http.get<Evento[]>(this.URL, {headers: this.tokenHeader}).pipe(take(1));
   }
 
   public getEventosByTema(tema: string): Observable<Evento[]> {
@@ -36,7 +37,7 @@ export class EventoService {
     return this.http.delete(`${this.URL}/${id}`).pipe(take(1));
   }
 
-  postUpload(eventoId: number, file: File): Observable<Evento> {
+  public postUpload(eventoId: number, file: File): Observable<Evento> {
     const fileToUpload = file[0] as File;
     const formData = new FormData();
     formData.append('file', fileToUpload);
