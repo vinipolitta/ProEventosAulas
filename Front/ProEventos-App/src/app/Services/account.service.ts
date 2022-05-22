@@ -4,9 +4,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '@environments/environment';
 import { User } from '@app/models/identity/user';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class AccountService {
   private currentUserSource = new ReplaySubject<User>(1);
   public currentUser$ = this.currentUserSource.asObservable();
