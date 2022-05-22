@@ -26,6 +26,18 @@ export class AccountService {
     );
   }
 
+  public register(model:any){
+    return this.http.post<User>(this.baseURL + 'Register', model).pipe(
+      take(1),
+      map((response: User) => {
+        const user = response;
+        if (user) {
+          this.setCurrentUser(user);
+        }
+      })
+    );
+  }
+
   public logout(): void {
     localStorage.removeItem('user');
     this.currentUserSource.next(null);
