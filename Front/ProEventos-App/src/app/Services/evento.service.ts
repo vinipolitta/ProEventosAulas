@@ -13,28 +13,30 @@ export class EventoService {
   tokenHeader = new HttpHeaders({'Authorization': `Bearer ${JSON.parse( localStorage.getItem('user')).token}`})
 
   public getEventos(): Observable<Evento[]> {
+    console.log('teste', JSON.parse( localStorage.getItem('user')).token);
+
     return this.http.get<Evento[]>(this.URL, {headers: this.tokenHeader}).pipe(take(1));
   }
 
   public getEventosByTema(tema: string): Observable<Evento[]> {
-    return this.http.get<Evento[]>(`${this.URL}/${tema}`).pipe(take(1));
+    return this.http.get<Evento[]>(`${this.URL}/${tema}`, {headers: this.tokenHeader}).pipe(take(1));
   }
 
   public getEventoById(id: number): Observable<Evento> {
-    return this.http.get<Evento>(`${this.URL}/${id}`).pipe(take(1));
+    return this.http.get<Evento>(`${this.URL}/${id}`, {headers: this.tokenHeader}).pipe(take(1));
   }
 
   public post(evento: any): Observable<any> {
-    return this.http.post<any>(this.URL, evento).pipe(take(1));
+    return this.http.post<any>(this.URL, evento, {headers: this.tokenHeader}).pipe(take(1));
   }
 
   public put(evento: any): Observable<Evento> {
     return this.http
-      .put<Evento>(`${this.URL}/${evento.id}`, evento)
+      .put<Evento>(`${this.URL}/${evento.id}`, evento, {headers: this.tokenHeader})
       .pipe(take(1));
   }
   public deleteEventos(id: number): Observable<any> {
-    return this.http.delete(`${this.URL}/${id}`).pipe(take(1));
+    return this.http.delete(`${this.URL}/${id}`, {headers: this.tokenHeader}).pipe(take(1));
   }
 
   public postUpload(eventoId: number, file: File): Observable<Evento> {
@@ -43,7 +45,7 @@ export class EventoService {
     formData.append('file', fileToUpload);
 
     return this.http
-      .post<Evento>(`${this.URL}/upload-image/${eventoId}`, formData)
+      .post<Evento>(`${this.URL}/upload-image/${eventoId}`, formData, {headers: this.tokenHeader})
       .pipe(take(1));
   }
 }
