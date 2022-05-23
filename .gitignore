@@ -47,5 +47,7 @@ Thumbs.db
 .db
 .db-shm
 .db-wal
+.dll
+.pdp
 
 /fontawesome-free-6.1.1-web
