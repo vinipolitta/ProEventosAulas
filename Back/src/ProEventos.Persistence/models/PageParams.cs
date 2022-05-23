@@ -17,6 +17,6 @@ namespace ProEventos.Persistence.models
             set { pageSize = (value > MaxPageSize) ? MaxPageSize : value; }
         }
 
-        public string Term { get; set; }
+        public string Term { get; set; } = string.Empty;
     }
 }
