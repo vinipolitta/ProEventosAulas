@@ -24,7 +24,7 @@ namespace ProEventos.API.Controllers
         private readonly IWebHostEnvironment _hostEnvironment;
         private readonly IAccountsService _accountsService;
 
-        public EventosController(IEventoService eventoService, 
+        public EventosController(IEventoService eventoService,
                                  IWebHostEnvironment hostEnvironment,
                                  IAccountsService accountsService)
         {
@@ -34,12 +34,14 @@ namespace ProEventos.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery]PageParams pageParams)
+        public async Task<IActionResult> Get([FromQuery] PageParams pageParams)
         {
             try
             {
                 var eventos = await _eventoService.GetAllEventosAsync(User.GetUserId(), pageParams, true);
                 if (eventos == null) return NoContent();
+
+                Response.AddPagination(eventos.CurrentPage, eventos.PageSize, eventos.TotalCount, eventos.TotalPages);
 
                 return Ok(eventos);
             }
@@ -126,10 +128,10 @@ namespace ProEventos.API.Controllers
                 var evento = await _eventoService.GetAllEventoByIdAsync(User.GetUserId(), id, true);
                 if (evento == null) return NoContent();
 
-                if(await _eventoService.DeleteEventos(User.GetUserId(), id))
+                if (await _eventoService.DeleteEventos(User.GetUserId(), id))
                 {
                     DeleteImage(evento.ImagemURL);
-                    return Ok(new { message = "Deletado" }) ;
+                    return Ok(new { message = "Deletado" });
                 }
                 else
                 {
