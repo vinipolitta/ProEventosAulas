@@ -3,6 +3,7 @@ import { map, Observable, ReplaySubject, take } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from '@environments/environment';
 import { User } from '@app/models/identity/user';
+import { UserUpdate } from '@app/models/identity/user-update';
 
 @Injectable()
 export class AccountService {
@@ -24,7 +25,20 @@ export class AccountService {
     );
   }
 
-  public register(model:any){
+  public getUser(): Observable<UserUpdate> {
+    return this.http.get<UserUpdate>(this.baseURL + 'GetUser').pipe(take(1));
+  }
+
+  public updateUser(model: UserUpdate): Observable<void> {
+    return this.http.put<UserUpdate>(this.baseURL + 'UpdateUser', model).pipe(
+      take(1),
+      map((user: UserUpdate) => {
+        this.setCurrentUser(user);
+      })
+    );
+  }
+
+  public register(model: any) {
     return this.http.post<User>(this.baseURL + 'Register', model).pipe(
       take(1),
       map((response: User) => {
@@ -36,7 +50,7 @@ export class AccountService {
     );
   }
 
-  public logout(): void {
+  logout(): void {
     localStorage.removeItem('user');
     this.currentUserSource.next(null);
     this.currentUserSource.complete();

@@ -32,7 +32,7 @@ namespace ProEventos.API.Controllers
         [HttpGet("GetUser")]
         public async Task<IActionResult> GetUser()
         {
-             try
+            try
             {
                 var userName = User.GetUserName();
                 var user = await _accountService.GetUserByUsernameAsync(userName);
@@ -56,19 +56,19 @@ namespace ProEventos.API.Controllers
 
                 var user = await _accountService.CreateAccountAsync(userDto);
                 if (user != null)
-               
+
                     return Ok(new
-                {
-                    userName = user.UserName,
-                    primeroNome = user.PrimeiroNome,
-                    token = _tokenService.CreateToken(user).Result
-                });
-                
+                    {
+                        userName = user.UserName,
+                        primeroNome = user.PrimeiroNome,
+                        token = _tokenService.CreateToken(user).Result
+                    });
+
                 return BadRequest("Usuario nao criado, tente novamente mais tarde!!!");
             }
             catch (Exception ex)
             {
-                return  this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao tentar registrar usuario. Erro: {ex.Message}");
+                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao tentar registrar usuario. Erro: {ex.Message}");
             }
         }
 
@@ -98,9 +98,8 @@ namespace ProEventos.API.Controllers
             }
         }
 
-        
+
         [HttpPut("UpdateUser")]
-        [AllowAnonymous]
         public async Task<IActionResult> UpdateUser(UserUpdateDto userUpdateDto)
         {
             try

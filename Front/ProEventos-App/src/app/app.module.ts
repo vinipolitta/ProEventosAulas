@@ -35,6 +35,7 @@ import { RegistrationComponent } from './components/user/registration/registrati
 import { DateTimeFormatPipe } from './helpers/date-time-format.pipe';
 import { LoteService } from './Services/lote.service';
 import { NgxCurrencyModule } from 'ngx-currency';
+import { HomeComponent } from './components/home/home.component';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -54,6 +55,7 @@ defineLocale('pt-br', ptBrLocale);
     UserComponent,
     LoginComponent,
     RegistrationComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +78,6 @@ defineLocale('pt-br', ptBrLocale);
       progressBar: true,
     }),
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     EventoService,
     LoteService,

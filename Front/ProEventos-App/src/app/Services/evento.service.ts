@@ -12,8 +12,6 @@ export class EventoService {
   public URL = environment.apiURL + 'api/Eventos';
 
   public getEventos(): Observable<Evento[]> {
-    console.log('teste', JSON.parse(localStorage.getItem('user')).token);
-
     return this.http.get<Evento[]>(this.URL).pipe(take(1));
   }
 
