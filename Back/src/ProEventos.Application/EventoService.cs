@@ -92,6 +92,7 @@ namespace ProEventos.Application
                 if (eventos == null) return null;
 
                 var resultado = _mapper.Map<PageList<EventoDto>>(eventos);
+
                 resultado.CurrentPage = eventos.CurrentPage;
                 resultado.TotalPages = eventos.TotalPages;
                 resultado.PageSize = eventos.PageSize;
