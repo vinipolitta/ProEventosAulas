@@ -741,19 +741,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Vini\\.nuget\\packages\\": {}
+    "C:\\Users\\Vini\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\repos\\ProEventos\\ProEventosAulas\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj",
+      "projectUniqueName": "D:\\vini-new-curso\\ProEventosAulas\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj",
       "projectName": "ProEventos.Domain",
-      "projectPath": "D:\\repos\\ProEventos\\ProEventosAulas\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj",
+      "projectPath": "D:\\vini-new-curso\\ProEventosAulas\\Back\\src\\ProEventos.Domain\\ProEventos.Domain.csproj",
       "packagesPath": "C:\\Users\\Vini\\.nuget\\packages\\",
-      "outputPath": "D:\\repos\\ProEventos\\ProEventosAulas\\Back\\src\\ProEventos.Domain\\obj\\",
+      "outputPath": "D:\\vini-new-curso\\ProEventosAulas\\Back\\src\\ProEventos.Domain\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\Vini\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -761,6 +766,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

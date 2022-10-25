@@ -2955,19 +2955,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Vini\\.nuget\\packages\\": {}
+    "C:\\Users\\Vini\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\repos\\ProEventos\\ProEventosAulas\\Back\\src\\ProEventos.API\\ProEventos.API.csproj",
+      "projectUniqueName": "D:\\vini-new-curso\\ProEventosAulas\\Back\\src\\ProEventos.API\\ProEventos.API.csproj",
       "projectName": "ProEventos.API",
-      "projectPath": "D:\\repos\\ProEventos\\ProEventosAulas\\Back\\src\\ProEventos.API\\ProEventos.API.csproj",
+      "projectPath": "D:\\vini-new-curso\\ProEventosAulas\\Back\\src\\ProEventos.API\\ProEventos.API.csproj",
       "packagesPath": "C:\\Users\\Vini\\.nuget\\packages\\",
-      "outputPath": "D:\\repos\\ProEventos\\ProEventosAulas\\Back\\src\\ProEventos.API\\obj\\",
+      "outputPath": "D:\\vini-new-curso\\ProEventosAulas\\Back\\src\\ProEventos.API\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\Vini\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2975,14 +2980,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\repos\\ProEventos\\ProEventosAulas\\Back\\src\\ProEventos.Application\\ProEventos.Application.csproj": {
-              "projectPath": "D:\\repos\\ProEventos\\ProEventosAulas\\Back\\src\\ProEventos.Application\\ProEventos.Application.csproj"
+            "D:\\vini-new-curso\\ProEventosAulas\\Back\\src\\ProEventos.Application\\ProEventos.Application.csproj": {
+              "projectPath": "D:\\vini-new-curso\\ProEventosAulas\\Back\\src\\ProEventos.Application\\ProEventos.Application.csproj"
             }
           }
         }

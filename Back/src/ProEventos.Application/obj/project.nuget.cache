@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iPlTfMTbjC3ZWIqgrTNNtb0Ech7ByTSVDkCcASEtxCadBqHqrhdG5FCmbtaLO+7I2BvHk/jfaOLj0wIm0PVrSw==",
+  "dgSpecHash": "uTzuJgIDyqKaDnMF4lGLjk8b/u8HKDNtDcyHZzpXiDhUSf+ll1wd70WJKAhrnBKOEFN2IPnyhoQXuw1IQKOjGg==",
   "success": true,
-  "projectFilePath": "D:\\repos\\ProEventos\\ProEventosAulas\\Back\\src\\ProEventos.Application\\ProEventos.Application.csproj",
+  "projectFilePath": "D:\\vini-new-curso\\ProEventosAulas\\Back\\src\\ProEventos.Application\\ProEventos.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vini\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Vini\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
