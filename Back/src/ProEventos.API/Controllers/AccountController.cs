@@ -106,7 +106,7 @@ namespace ProEventos.API.Controllers
             {
                 if (userUpdateDto.UserName != User.GetUserName())
                     return Unauthorized("Usuário Inválido");
-
+                
                 var user = await _accountService.GetUserByUsernameAsync(User.GetUserName());
                 if (user == null) return Unauthorized("Usuário Inválido");
 

@@ -101,7 +101,7 @@ namespace ProEventos.API.Controllers
             }
             catch (Exception ex)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao tentar adicionar eventos. Erro: {ex.Message}");
+                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao tentar adicionar imagens. Erro: {ex.Message}");
             }
         }
 
@@ -144,25 +144,28 @@ namespace ProEventos.API.Controllers
             }
         }
 
-        [NonAction]
+          [NonAction]
         public void DeleteImage(string imageName)
         {
-            var imagPath = Path.Combine(_hostEnvironment.ContentRootPath, @"Resources/images", imageName);
-            if (System.IO.File.Exists(imagPath)) System.IO.File.Delete(imagPath);
+            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, @"Resources/images", imageName);
+            if (System.IO.File.Exists(imagePath))
+                System.IO.File.Delete(imagePath);
+
         }
 
+
         [NonAction]
-        public async Task<string> SaveImage(IFormFile imageFile)
+        public async Task<string> SaveImage(IFormFile imageNameFile)
         {
-            string imageName = new String(Path.GetFileNameWithoutExtension(imageFile.FileName)
-                                            .Take(10)
-                                            .ToArray())
-                                            .Replace(' ', '-');
-            imageName = $"{imageName}{DateTime.UtcNow.ToString("yymmssfff")}{Path.GetExtension(imageFile.FileName)}";
+            string imageName = new String(Path.GetFileNameWithoutExtension(imageNameFile.FileName)
+                                              .Take(10)
+                                              .ToArray()).Replace(' ', '-');
+            imageName = $"{imageName}{DateTime.UtcNow.ToString("yymmssfff")}{Path.GetExtension(imageNameFile.FileName)}";
             var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, @"Resources/images", imageName);
-            using (var fileStream = new FileStream(imagePath, FileMode.Create))
+
+            using (var fileSream = new FileStream(imagePath, FileMode.Create))
             {
-                await imageFile.CopyToAsync(fileStream);
+                await imageNameFile.CopyToAsync(fileSream);
             }
             return imageName;
         }
