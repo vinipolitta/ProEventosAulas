@@ -6,7 +6,7 @@ using ProEventos.Persistence.models;
 
 namespace ProEventos.API.Helpers
 {
-    public class ProEventosProfile: Profile
+    public class ProEventosProfile : Profile
     {
         public ProEventosProfile()
         {
@@ -14,7 +14,9 @@ namespace ProEventos.API.Helpers
             CreateMap<Lote, LoteDto>().ReverseMap();
             CreateMap<Palestrante, PalestranteDto>().ReverseMap();
             CreateMap<RedeSocial, RedeSocialDto>().ReverseMap();
-            
+            CreateMap<Palestrante, PalestranteAddDto>().ReverseMap();
+            CreateMap<Palestrante, PalestranteUpdateDto>().ReverseMap();
+
             CreateMap<User, UserDto>().ReverseMap();
             CreateMap<User, UserLoginDto>().ReverseMap();
             CreateMap<User, UserUpdateDto>().ReverseMap();
